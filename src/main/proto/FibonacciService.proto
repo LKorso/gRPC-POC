@@ -1,0 +1,17 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package org.grpc.server;
+
+message FibonacciRequest {
+    int32 value = 1;
+}
+
+message FibonacciResponse {
+    int32 value = 1;
+    int32 result = 2;
+}
+
+service FibonacciService {
+    rpc calculate(stream FibonacciRequest) returns (stream FibonacciResponse);
+}
+
